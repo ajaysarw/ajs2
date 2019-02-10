@@ -1,0 +1,86 @@
+<h2 *ngIf="selectedHero.id">{{selectedHero.id}} : {{selectedHero.name | uppercase}} </h2>
+
+<hr />
+<!-- Dynamic rendering or String Interpolation -->
+{{ heroList }}
+<hr />
+<!-- <app-hero-description 
+  [heroList] = "selectedHero">
+</app-hero-description>  -->
+<hr />
+<!-- //#// Property binding : Always works one way i.e. Component to view-->
+<h2 [textContent]="title2"></h2>
+<ul class="heroes">
+  <!-- //#// Any dirctive that modifies(add, delete etc.) the DOM, must prefix * -->
+  <!-- <li *ngFor="let hero of heroesS" [class.selected]="hero === selectedHero" (click)="onSelect(hero)" placeholder="name">
+    <span class="badge"> {{ hero.id }}</span> {{ hero.name }}
+  </li> -->
+</ul>
+
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- //#// Any directive that modifies(add, delete etc.) the DOM, must prefix * --> 
+    <tr 
+        *ngFor="let hero of heroesS" 
+        [class.selected]="hero === selectedHero" 
+        (click)="onSelect(hero)" 
+        placeholder="name"
+    >
+      <td> {{ hero.id }} </td> 
+      <td> {{ hero.name }} </td>
+      <td> {{ hero.email }} </td>
+      <td> {{ hero.phone }} </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr>
+<div (click)="onButtonContainerClick($event)" style="padding: 5px">
+    <!-- //#// Template variable used-->
+    <input #email type="text" style="margin-right: 10px" (keyup.enter)="submitInput()" /> 
+    <button class="btn btn-primary" [class.active]="isActive" (click)="say($event)"> Save1 </button>
+    <button class="btn btn-primary" [class.active]="isActive" (click)="say2(email.value)"> Save2</button>
+</div>
+<hr>
+<div (click)="onButtonContainerClick($event)" style="padding: 5px">
+    <!-- //#// Template variable used-->
+    <input type="text" [value]="phone" (keyup.enter)="onPropBind()" /> 
+</div>
+<hr>
+
+
+<hr>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" colspan="3"> <h2>Two way binding -pre </h2> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- //#// Any directive that modifies(add, delete etc.) the DOM, must prefix * --> 
+      <tr>
+        <td> <input type="text" [value]="address" (keyup.enter)="address = $event.target.value;twoWayBinding1()" /> </td> 
+        <td> <input #address2 [value]="address" (keyup.enter)="twoWayBinding2(address2.value)" /> </td>
+        <td> Real 2way binding: <input [(ngModel)]="address" (keyup.enter)="twoWayBindingOriginal()" /> </td>        
+      </tr>
+    </tbody>
+  </table>
+
+
+<!-- -->
+<!-- <hr/> 
+<app-hero-detail 
+  [heroDetails] = "selectedHero">
+</app-hero-detail> 
+<hr/>   -->
