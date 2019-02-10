@@ -26,6 +26,7 @@
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">phone</th>
+      <th scope="col">Address</th>
     </tr>
   </thead>
   <tbody>
@@ -40,6 +41,7 @@
       <td> {{ hero.name }} </td>
       <td> {{ hero.email }} </td>
       <td> {{ hero.phone }} </td>
+      <td> {{ hero.address | summary:25 }} </td>
     </tr>
   </tbody>
 </table>

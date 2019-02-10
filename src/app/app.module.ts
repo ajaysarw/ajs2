@@ -7,6 +7,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroDescriptionComponent } from './hero-description/hero-description.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SummaryPipe } from './summary.pipe';
 
 // another decorator function: convert any class into a module
 @NgModule(
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
       AppComponent,
       HeroesComponent,
       HeroDetailComponent,
-      HeroDescriptionComponent
+      HeroDescriptionComponent,
+      SummaryPipe
     ],
     imports: [
       BrowserModule,

@@ -4,4 +4,5 @@ export class Hero {
     address?: string;
     email?: string;
     phone?: string;
+    descr?: string;
 }
